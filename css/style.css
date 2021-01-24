@@ -22,6 +22,7 @@ nav{
     z-index: 100;
 }
 
+/*Parte redes sociales*/
 .redes-sociales{
     height: 40px;
     border: 1px solid rgb(0,0,0,0.05);
@@ -47,6 +48,7 @@ nav{
     transition: all ease 0.3s;
 }
 
+/*Parte Barra navegacion*/
 .navegation{
     display: flex;
     justify-content: space-between;
@@ -82,11 +84,13 @@ nav{
 
 .menu a:hover,
 .right-menu a:hover,
-.search-cancel:hover{
+.search-cancel:hover,
+.form-cancel:hover{
     color: #aacd6b;
     transition: all ease 0.3s;
 }
 
+/*Parte etiqueta "ofertas"-------------------*/
 .sale-lable{
     width: 60px;
     height: 17px;
@@ -109,13 +113,14 @@ nav{
     height: 0px;
     border-bottom: 5px solid transparent;
     border-left: 3px solid transparent;
-    border-top: 7px solid color #aacd6b;
-    border-right: 5px solid color transparent;
+    border-top: 7px solid seagreen;
+    border-right: 5px solid transparent;
     position: absolute;
     left: 10%;
     top: 100%;
 }
 
+/*Parte Carrito de compras ---------------------------------------*/
 .fa-shopping-cart{
     position: relative;
 }
@@ -136,6 +141,7 @@ nav{
     font-weight: 400;
 }
 
+/*Parte Barra de busqueda xd ---------------------------------------*/
 .search-bar{
     width: 100%;
     height: 300px;
@@ -175,16 +181,17 @@ nav{
     font-size: 2rem;
     padding-right: 40px;
 }
-/*Default barra oculta*/
+/*Default barra oculta busqueda*/
 .search-bar{
     display: none;
 }
-/*mostrar barra oculta*/
+/*mostrar barra oculta busqueda*/
 .search-bar-active{
     display: flex;
 
 }
 
+/*animacion mostrar barra busqueda*/
 @keyframes search{
     0%{
         bottom: -300px;
@@ -192,4 +199,142 @@ nav{
     100%{
         bottom: 0px;
     }
+}
+
+/*--Form para registro--------------------------------*/
+.form{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 102;
+}
+
+.login-form,
+.sign-up-form{
+    width: 420px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 30px rgb(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+.login-form form,
+.sign-up-form form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.login-form strong,
+.sign-up-form strong{
+    color: #272727;
+    font-size: 2rem;
+    margin: 2px 7px 7px 7px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.login-form input,
+.sign-up-form input{
+    width: 90%;
+    height: 45px;
+    margin: 6px 0px;
+    padding: 0px 10px;
+    border: 1px solid rgb(0,0,0,0.1);
+    outline: none;
+    border-radius: 7px;
+}
+
+.login-form input::placeholder,
+.sign-up-form input::placeholder{
+    color:  rgb(0,0,0,0.5);
+}
+
+.login-form input[type="submit"],
+.sign-up-form input[type="submit"]{
+    background-color: #aacd6b;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    margin-top: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 2px 30px rgb(0,0,0,0.1);
+}
+
+.form-btns{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-btns a{
+    color: #4d4d4d;
+    font-size: 0.9rem;
+}
+
+.sign-up-btn{
+    border-bottom: 1px solid #868686;
+    line-height: 16px;
+}
+
+.form-cancel{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: #869686;
+}
+
+.login-form,
+.sign-up-form,
+.form{
+    display: none;
+}
+
+.login-active,
+.login-active .login-form{
+    display: flex;
+    animation: fade 0.5s;
+}
+
+.sign-up-active,
+.sign-up-active .sign-up-form{
+    display: flex;
+    animation: fade 0.5s;
+}
+
+@keyframes fade{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/*------------ Carrousel completo------------------------------------------------*/
+
+.full-slider-box{
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
 }

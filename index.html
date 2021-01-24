@@ -18,10 +18,10 @@
         <div class="redes-sociales">
             <!-- redes sociales-->
             <div class="social">
-                <a href="#"><i class="fab fa-facebook-square"></i></a>
-                <a href="#"><i class="fab fa-twitter-square"></i></a>
-                <a href="#"><i class="fab fa-youtube-square"></i></a>
-                <a href="#"><i class="fab fa-instagram-square"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <!-- numero telefono-->
             <div class="telefono">
@@ -53,7 +53,7 @@
                     <i class="fas fa-search"></i>
                 </a>
                 <!--Usuario-->
-                <a href="#">
+                <a href="#" class="user">
                     <i class="fas fa-user"></i>
                 </a>
                 <!--Carrito de Compras-->
@@ -78,7 +78,62 @@
             </a>
         </div>
     </div>
+    <!--login y registro de usuarios ------------------------------------------->
+    <div class="form">
+        <!--login-->
+        <div class="login-form">
+            <!--boton cancelar-------------------------------------------------->
+            <a href="" class="form-cancel">
+                <i class="fas fa-times"></i>
+            </a>
+            <!--Cabecera-->
+            <strong>Log In</strong>
+            <!--inputs-->
+            <form action="">
+                <input type="email" placeholder="Ejemplo@gmial.com" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <!--Boton de logeo-->
+                <input type="submit" value="Iniciar Sesion">
+            </form>
+            <!--contraseña olvidada-->
+            <div class="form-btns">
+                <a href="#" class="forget">Olvide mi Contraseña?</a>
+                <a href="#" class="sign-up-btn">Crear Cuenta</a>
+            </div>
+        </div>
 
+        <!--Registrarse-->
+        <div class="sign-up-form">
+            <!--boton cancelar-------------------------------------------------->
+            <a href="" class="form-cancel">
+                <i class="fas fa-times"></i>
+            </a>
+            <!--Cabecera-->
+            <strong>Crear Cuenta</strong>
+            <!--inputs-->
+            <form action="">
+                <input type="text" placeholder="Nombre Completo" name="fullname" required>
+                <input type="email" placeholder="Ejemplo@gmial.com" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+                <!--Boton de logeo-->
+                <input type="submit" value="Registrarse">
+            </form>
+            <!--contraseña olvidada-->
+            <div class="form-btns">
+                <a href="#" class="already-account">Tienes Cuenta?</a>
+            </div>
+        </div>
+    </div>
+<!--Silder completo carrouser--------------------------------------------------->       
+    <div class="full-slider-box">
+        <!--contenedor de texto del carrouser-->
+        <div class="slider-tect-conntainer">
+            <span>Oferta limitado</span>
+            <strong>30% de descuento con el siguiente codigo</strong>
+            <a href="#" class="f-slider-btn">Comprar Ahora</a>
+
+        </div>
+    </div>
 
 
 
@@ -95,6 +150,20 @@
     $(document).on('click', '.search-cancel',function(){
         $('.search-bar').removeClass('search-bar-active')
     })
+
+    /* logica para cambiar entre log in y registro form*/
+    $(document).on('click', '.user,.already-account',function(){
+        $('.form').addClass('login-active').removeClass('sign-up-active')
+    })
+
+    $(document).on('click', '.sign-up-btn',function(){
+        $('.form').addClass('sign-up-active').removeClass('login-active')
+    })
+
+    $(document).on('click', '.form-cancel',function(){
+        $('.form').removeClass('login-active').removeClass('sign-up-active')
+    })
+
     </script>
 </body>
 </html>
