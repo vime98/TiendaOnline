@@ -49,7 +49,7 @@
             <!--Menu - Derecha-->
             <div class="right-menu">
                 <!--Buscador-->
-                <a href="#">
+                <a href="#" class="search">
                     <i class="fas fa-search"></i>
                 </a>
                 <!--Usuario-->
@@ -78,5 +78,23 @@
             </a>
         </div>
     </div>
+
+
+
+
+    <!--jQuery------------------------------------------>
+    <script src="js/jQuery.js"></script>
+    <!--Script-->
+    <script type="text/javascript">
+    
+    /*-------Barra de busqueda--------------------------*/
+    $(document).on('click', '.search',function(){
+        $('.search-bar').addClass('search-bar-active')
+    })
+    
+    $(document).on('click', '.search-cancel',function(){
+        $('.search-bar').removeClass('search-bar-active')
+    })
+    </script>
 </body>
 </html>

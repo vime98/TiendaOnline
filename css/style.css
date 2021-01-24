@@ -81,7 +81,7 @@ nav{
 }
 
 .menu a:hover,
-.right-menu a:hover
+.right-menu a:hover,
 .search-cancel:hover{
     color: #aacd6b;
     transition: all ease 0.3s;
@@ -146,7 +146,8 @@ nav{
     display: flex;
     justify-content: center;
     box-shadow: 2px -5px 30px rgb(0,0,0,0.1);
-    z-index: 101;
+    z-index: 101;    
+    animation: search 0.5s;
 }
 
 .search-input{
@@ -173,4 +174,22 @@ nav{
     color: #272727;
     font-size: 2rem;
     padding-right: 40px;
+}
+/*Default barra oculta*/
+.search-bar{
+    display: none;
+}
+/*mostrar barra oculta*/
+.search-bar-active{
+    display: flex;
+
+}
+
+@keyframes search{
+    0%{
+        bottom: -300px;
+    }
+    100%{
+        bottom: 0px;
+    }
 }
