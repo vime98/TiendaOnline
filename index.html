@@ -6,6 +6,13 @@
     <title>Tienda Online</title>
     <!-- Hojas de estilo  CSS-->    
     <link rel="stylesheet" href="css/style.css" type="text/css">
+     <!-- Hojas de estilo  slider-->    
+     <link rel="stylesheet" href="css/lightslider.css" type="text/css">
+     <!--jQuery------------------------------------------>
+    <script src="js/jQuery.js"></script>
+    <!--Slider script ------------------------------------------>
+    <script src="js/lightslider.js"></script>
+
     <!-- fav-icon-->
     <link href="img/logo.jpg" rel="shorcut icon">
     <!--Usando fontAwesome -->
@@ -124,21 +131,57 @@
             </div>
         </div>
     </div>
-<!--Silder completo carrouser--------------------------------------------------->       
-    <div class="full-slider-box">
-        <!--contenedor de texto del carrouser-->
-        <div class="slider-tect-conntainer">
-            <span>Oferta limitado</span>
-            <strong>30% de descuento con el siguiente codigo</strong>
-            <a href="#" class="f-slider-btn">Comprar Ahora</a>
+<!--Silder completo carrouser--------------------------------------------------->   
 
-        </div>
-    </div>
+    <ul id="adaptive" class="cs-hidden">
+        <!-- caja 1-->
+        <li class="item-a">
+            <!-- caja -------------->
+            <div class="full-slider-box f-slide-1">
+                <!--contenedor de texto del carrouser-->
+                <div class="slider-text-container">
+                    <div class="f-slider-text">
+                        <span>Oferta limitada</span>
+                        <strong>30% de descuento <br> con <font> codigo </font></strong>
+                        <a href="#" class="f-slider-btn">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <!-- caja 2-->
+        <li class="item-a">
+            <!-- caja -------------->
+            <div class="full-slider-box f-slide-2">
+                <!--contenedor de texto del carrouser-->
+                <div class="slider-text-container">
+                    <div class="f-slider-text">
+                        <span>Oferta limitada</span>
+                        <strong>30% de descuento <br> con <font> codigo </font></strong>
+                        <a href="#" class="f-slider-btn">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- caja 3-->
+        <li class="item-a">
+            <!-- caja -------------->
+            <div class="full-slider-box f-slide-3">
+                <!--contenedor de texto del carrouser-->
+                <div class="slider-text-container">
+                    <div class="f-slider-text">
+                        <span>Oferta limitada</span>
+                        <strong>30% de descuento <br> con <font> codigo </font></strong>
+                        <a href="#" class="f-slider-btn">Comprar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
 
 
 
-    <!--jQuery------------------------------------------>
-    <script src="js/jQuery.js"></script>
+    
     <!--Script-->
     <script type="text/javascript">
     
@@ -163,6 +206,19 @@
     $(document).on('click', '.form-cancel',function(){
         $('.form').removeClass('login-active').removeClass('sign-up-active')
     })
+
+    /*scrip corusel*/
+
+    $(document).ready(function() {
+        $('#adaptive').lightSlider({
+            adaptiveHeight:true,
+            auto:true,
+            item:1,
+            slideMargin:0,
+            loop:true
+        });
+    });
+
 
     </script>
 </body>
