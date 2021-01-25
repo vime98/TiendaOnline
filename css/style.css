@@ -122,6 +122,24 @@ nav{
     top: 100%;
 }
 
+.sale-lable-promo{
+    width: 360px;
+    height: 40px;
+    background-color: tomato;
+    color: #ffffff;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 1.2rem;
+}
+
+
 /*Parte Carrito de compras ---------------------------------------*/
 .fa-shopping-cart{
     position: relative;
@@ -354,6 +372,9 @@ nav{
 }
 .f-slide-3{
     background-image: url(../img/banner4-promo.png);
+}
+.f-slide-4{
+    background-image: url(../img/banner6-promo.jpg);
 }
 .slider-text-container,
 .banner-text-container{
