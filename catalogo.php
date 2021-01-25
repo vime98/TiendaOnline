@@ -1,3 +1,9 @@
+<?php 
+
+include 'config.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -139,6 +145,89 @@
         </div>
     </div>
 
+    <!--
+    <section class="container mt-5">
+        <div class="card-deck">
+        <?php
+        
+            $qry = "select * from catalogo";;
+            $resut = bd_consulta('tienda_online_plg',$qry);
+            while($mostrar=mysqli_fetch_all($resut)){
+
+        ?>
+            
+                <div class="card">
+                    <img class="card-img-top" src='<?php echo $mostrar['foto'] ?>' alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"><?php echo $mostrar['nombre'] ?></h5>
+                    <p class="card-text"><?php echo $mostrar['descripcion'] ?></p>
+                    <p class="card-text"><small class="text-muted">Precio: </small> <?php echo $mostrar['precio'] ?></p>
+                    <p class="card-text"><small class="text-muted">Stock:<strong> <?php echo $mostrar['stock'] ?> </strong></small></p>
+                    </div>
+                </div>
+            
+        <?php
+            }
+        ?>
+        </div>
+    </section>-->
+
+    <?PHP
+			$servidor="localhost";
+			$usuario="root";
+			$clave="";
+			$conexion = mysqli_connect($servidor, $usuario, $clave, "tienda_online_plg");
+			if (!$conexion)
+				{ echo "<h2>Error al establecer conexión con el servidor!!!</h2>"; exit; }
+			
+			$sql = "select * from catalogo";
+			$resultado=mysqli_query ($conexion, $sql);
+            echo "<section class='container mt-5'>";
+            echo "<div class='card-columns'>";
+			while($renglon = mysqli_fetch_array($resultado)) {
+				echo "<div class='card'> <img class='card-img-top' src='". $renglon['foto'] . "' alt='Card image cap'>";
+				echo "<div class='card-body'> <h5 class='card-title'>" . $renglon['nombre'] . "</h5>";
+				echo "<p class='card-text'>" . $renglon['descripcion'] . "</p>";
+				echo "<p class='card-text'><small class='text-muted'>Precio: </small> " . $renglon['precio'] . "</p>";
+                echo "<p class='card-text'><small class='text-muted'>Stock: </small><strong> " . $renglon['stock'] . "</strong></small></p>";
+                echo "</div>";
+                echo "</div>";
+                
+            }
+            echo "</div>";
+			echo "</section>";
+			mysqli_close($conexion);
+		?>
+
+
+    <section>    
+        <!--heading----------->
+        <div class="arrival-heading">
+            <strong>Catalogo de Productos</strong>
+            <p>A continuacion de lista los productos existentes </p>
+        </div>
+        <!--Productos contenedor-->
+        <div class="product-container">
+            <!--producto- caja - 1-->
+            <div class="product-box">
+                <!--img -->
+                <div class="product-img">
+                    <!--Agraga al carrito-->
+                    <a href="#" class="add-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+
+                    <img src="./img/p-1.jpg" >
+                </div>
+                <!--detalles-->
+                <div class="product-details">
+                    <a href="#" class="p-name">Jardineria Pricipiantes</a>
+                    <span class="p-price">$150.00</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 
 <!--Banner de promocion--------------------------------------------->
