@@ -2,19 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="plantas, vivero, jardineria" /> 
+	<meta name="description" content="Página para la venta de plantas y jardineria" />
+    <meta name="author" content="Ernesto Vieyra" />
     <title>Plant Life Green</title>
     <!-- Hojas de estilo  CSS-->    
     <link rel="stylesheet" href="css/style.css" type="text/css">
      <!-- Hojas de estilo  slider-->    
      <link rel="stylesheet" href="css/lightslider.css" type="text/css">
-     
+     <!-- Hojas de estilo  bootsrap-->  
     <link rel="stylesheet" href="css/bootstrap.min.css">
      <!--jQuery------------------------------------------>
     <script src="js/jQuery.js"></script>
     <!--Slider script ------------------------------------------>
     <script src="js/lightslider.js"></script>
-
     <!-- fav-icon-->
     <link href="img/logo_size.jpg" rel="shorcut icon">
     <!--Usando fontAwesome -->
@@ -39,11 +42,13 @@
         </div>
 
     <!--menu bar----------------------------------------------------------------------------->
-        <div class="navegation">
+        <div class="navigation">
             <!--logo-->
-            <a href="#" >
+            <a href="#" class="logo">
                 <img src="img/logo_invert.jpg">
             </a>
+            <!--Icono menu-->
+            <div class="toggle"></div>
             <!--Menu-->
             <ul class="menu">
                 <li><a href="#">Home</a></li>
@@ -58,11 +63,11 @@
             <!--Menu - Derecha-->
             <div class="right-menu">
                 <!--Buscador-->
-                <a href="#" class="search">
+                <a href="javascript:void(0);" class="search">
                     <i class="fas fa-search"></i>
                 </a>
                 <!--Usuario-->
-                <a href="#" class="user">
+                <a href="javascript:void(0);" class="user">
                     <i class="fas fa-user"></i>
                 </a>
                 <!--Carrito de Compras-->
@@ -82,7 +87,7 @@
             <!--input-->
             <input type="text" placeholder="Busca un producto">
             <!--Boton cancelar-->
-            <a href="#" class="search-cancel">
+            <a href="javascript:void(0);" class="search-cancel">
                 <i class="fas fa-times"></i>
             </a>
         </div>
@@ -92,7 +97,7 @@
         <!--login-->
         <div class="login-form">
             <!--boton cancelar-------------------------------------------------->
-            <a href="" class="form-cancel">
+            <a href="javascript:void(0);" class="form-cancel">
                 <i class="fas fa-times"></i>
             </a>
             <!--Cabecera-->
@@ -107,14 +112,14 @@
             <!--contraseña olvidada-->
             <div class="form-btns">
                 <a href="#" class="forget">Olvide mi Contraseña?</a>
-                <a href="#" class="sign-up-btn">Crear Cuenta</a>
+                <a href="javascript:void(0);" class="sign-up-btn">Crear Cuenta</a>
             </div>
         </div>
 
         <!--Registrarse-->
         <div class="sign-up-form">
             <!--boton cancelar-------------------------------------------------->
-            <a href="" class="form-cancel">
+            <a href="javascript:void(0);" class="form-cancel">
                 <i class="fas fa-times"></i>
             </a>
             <!--Cabecera-->
@@ -129,7 +134,7 @@
             </form>
             <!--contraseña olvidada-->
             <div class="form-btns">
-                <a href="#" class="already-account">Tienes Cuenta?</a>
+                <a href="javascript:void(0);" class="already-account">Tienes Cuenta?</a>
             </div>
         </div>
     </div>
@@ -171,7 +176,7 @@
             <div class="full-slider-box f-slide-3">
                 <!--contenedor de texto del carrouser-->
                 <div class="slider-text-container">
-                    <div class="f-slider-text">
+                    <div class="f-slider-text ">
                         <span>Oferta limitada</span>
                         <strong>10% de descuento <br> con <font> PLANTA1 </font></strong>
                         <a href="#" class="f-slider-btn">Comprar Ahora</a>
@@ -516,6 +521,23 @@
             } 
         });  
       });
+
+    /*nav bar estatica*/
+    $(Window).scroll(function(){
+        if( $(document).scrollTop() > 50){
+            $('.navigation').addClass('fix-nav');
+        }
+        else{
+            $('.navigation').removeClass('fix-nav');
+        } 
+    })
+    /*--para ser responsivo menu----------------------------*/
+    $(document).ready(function(){
+        $('.toggle').click(function(){
+            $('.toggle').toggleClass('active')
+            $('.navigation').toggleClass('active')
+        })
+    })
     </script>
 </body>
 </html>
