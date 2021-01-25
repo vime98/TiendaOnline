@@ -9,3 +9,5 @@ Las 5 ideas del neuromarketing fueron:
 3.- Escaces hay una seccion en el index donde "solo hoy" hay un descuento en un curso
 4.- Hay codigos de descuento en el carousel
 5.- casi al final hay un banner donde da 10% de descuento en la primera compra
+
+PD: Todo es estatico aun no se implenta funcionalidades solo el catalogo el cual debe de correr el sript
