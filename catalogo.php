@@ -2,7 +2,6 @@
 
 include 'config.php';
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,9 +19,9 @@ include 'config.php';
      <link rel="stylesheet" href="css/lightslider.css" type="text/css">
      <!-- Hojas de estilo  bootsrap-->  
     <link rel="stylesheet" href="css/bootstrap.min.css">
-     <!--jQuery------------------------------------------>
+     <!--jQuery-->
     <script src="js/jQuery.js"></script>
-    <!--Slider script ------------------------------------------>
+    <!--Slider script -->
     <script src="js/lightslider.js"></script>
     <!-- fav-icon-->
     <link href="img/logo_size.jpg" rel="shorcut icon">
@@ -30,7 +29,7 @@ include 'config.php';
     <script src="https://kit.fontawesome.com/7af17d5460.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- barra de navegacion ---------------------------------------------------------------->
+    <!-- barra de navegacion -->
     <nav>
         <!-- redes sociales y numero de telefono-->
         <div class="redes-sociales">
@@ -47,7 +46,7 @@ include 'config.php';
             </div>
         </div>
 
-    <!--menu bar----------------------------------------------------------------------------->
+    <!--menu bar-->
         <div class="navigation">
             <!--logo-->
             <a href="#" class="logo">
@@ -58,7 +57,7 @@ include 'config.php';
             <!--Menu-->
             <ul class="menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="/">Catalogo</a>
+                <li><a href="#">Catalogo</a>
                     <!--etiqueta-venta-->
                         <span class="sale-lable">Ofertas</span>
                 </li>
@@ -98,11 +97,11 @@ include 'config.php';
             </a>
         </div>
     </div>
-    <!--login y registro de usuarios ------------------------------------------->
+    <!--login y registro de usuarios -->
     <div class="form">
         <!--login-->
         <div class="login-form">
-            <!--boton cancelar-------------------------------------------------->
+            <!--boton cancelar-->
             <a href="javascript:void(0);" class="form-cancel">
                 <i class="fas fa-times"></i>
             </a>
@@ -124,7 +123,7 @@ include 'config.php';
 
         <!--Registrarse-->
         <div class="sign-up-form">
-            <!--boton cancelar-------------------------------------------------->
+            <!--boton cancelar-->
             <a href="javascript:void(0);" class="form-cancel">
                 <i class="fas fa-times"></i>
             </a>
@@ -171,37 +170,41 @@ include 'config.php';
         ?>
         </div>
     </section>-->
-
-    <?PHP
-			$servidor="localhost";
-			$usuario="root";
-			$clave="";
-			$conexion = mysqli_connect($servidor, $usuario, $clave, "tienda_online_plg");
-			if (!$conexion)
-				{ echo "<h2>Error al establecer conexión con el servidor!!!</h2>"; exit; }
-			
-			$sql = "select * from catalogo";
-			$resultado=mysqli_query ($conexion, $sql);
-            echo "<section class='container mt-5'>";
-            echo "<div class='card-columns'>";
-			while($renglon = mysqli_fetch_array($resultado)) {
-				echo "<div class='card'> <img class='card-img-top' src='". $renglon['foto'] . "' alt='Card image cap'>";
-				echo "<div class='card-body'> <h5 class='card-title'>" . $renglon['nombre'] . "</h5>";
-				echo "<p class='card-text'>" . $renglon['descripcion'] . "</p>";
-				echo "<p class='card-text'><small class='text-muted'>Precio: </small> " . $renglon['precio'] . "</p>";
-                echo "<p class='card-text'><small class='text-muted'>Stock: </small><strong> " . $renglon['stock'] . "</strong></small></p>";
-                echo "</div>";
-                echo "</div>";
+    <section>   
+        <div class="arrival-heading">
+                <strong>Catalogo de Productos</strong>
+                <p>A continuacion de lista los productos existentes </p>
+            </div>
+        <?PHP
+                $servidor="localhost";
+                $usuario="root";
+                $clave="";
+                $conexion = mysqli_connect($servidor, $usuario, $clave, "tienda_online_plg");
+                if (!$conexion)
+                    { echo "<h2>Error al establecer conexión con el servidor!!!</h2>"; exit; }
                 
-            }
-            echo "</div>";
-			echo "</section>";
-			mysqli_close($conexion);
-		?>
-
+                $sql = "select * from catalogo";
+                $resultado=mysqli_query ($conexion, $sql);
+                echo "<section class='container mt-5'>";
+                echo "<div class='card-columns'>";
+                while($renglon = mysqli_fetch_array($resultado)) {
+                    echo "<div class='card'> <img class='card-img-top' src='". $renglon['foto'] . "' alt='Card image cap'>";
+                    echo "<div class='card-body'> <h5 class='card-title'>" . $renglon['nombre'] . "</h5>";
+                    echo "<p class='card-text'>" . $renglon['descripcion'] . "</p>";
+                    echo "<p class='card-text'><small class='text-muted'>Precio: </small> " . $renglon['precio'] . "</p>";
+                    echo "<p class='card-text'><small class='text-muted'>Stock: </small><strong> " . $renglon['stock'] . "</strong></small></p>";
+                    echo "</div>";
+                    echo "</div>";
+                    
+                }
+                echo "</div>";
+                echo "</section>";
+                mysqli_close($conexion);
+            ?>
+    </section>
 
     <section>    
-        <!--heading----------->
+        <!--heading-->
         <div class="arrival-heading">
             <strong>Catalogo de Productos</strong>
             <p>A continuacion de lista los productos existentes </p>
@@ -230,7 +233,7 @@ include 'config.php';
     </section>
 
 
-<!--Banner de promocion--------------------------------------------->
+<!--Banner de promocion-->
     <!-- caja -------------->
     <div class="banner-slider-box f-slide-3">
         <!--contenedor de texto del carrouser-->
@@ -243,21 +246,21 @@ include 'config.php';
         </div>
     </div>
 
-<!--services------------------------->
+<!--services-->
     <section class="services">
-        <!--services-box---------->
+        <!--services-box-->
         <div class="services-box">
             <i class="fas fa-shipping-fast"></i>
             <span>Envios Nacionales</span>
             <p>Envios a Toda la Republica</p>
         </div>
-        <!--services-box---------->
+        <!--services-box-->
         <div class="services-box">
             <i class="fas fa-headphones-alt"></i>
             <span>Servicio 24/7</span>
             <p>Trabajamos 24h al dia para ti</p>
         </div>
-        <!--services-box---------->
+        <!--services-box-->
         <div class="services-box">
             <i class="fas fa-sync"></i>
             <span>Reembolsos 100%</span>
@@ -266,7 +269,7 @@ include 'config.php';
         
     </section>
 
-<!--footer---------------------------->
+<!--footer-->
 <footer id="footer">
     <div class="footer-top">
       <div class="container">

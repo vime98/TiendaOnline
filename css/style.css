@@ -32,7 +32,7 @@ nav{
 }
 
 .social a{
-    margin: 0px, 5px;
+    margin: 0px 5px;
     color: rgb(0,0,0,0.7);
     font-size: 0.9rem;
 }
@@ -434,6 +434,10 @@ nav{
 
 .f-slider-text strong font,
 .banner-text strong font{
+    color: tomato;
+}
+
+.font-code{
     color: tomato;
 }
 
