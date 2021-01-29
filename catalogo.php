@@ -1,6 +1,7 @@
 <?php 
 
-include 'config.php';
+    include 'ConsultasPHP/config.php';
+    include 'ConsultasPHP/conexion.php';
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +73,7 @@ include 'config.php';
                     <i class="fas fa-search"></i>
                 </a>
                 <!--Usuario-->
-                <a href="javascript:void(0);" class="user">
+                <a href="login.php" class="user">
                     <i class="fas fa-user"></i>
                 </a>
                 <!--Carrito de Compras-->
@@ -144,92 +145,37 @@ include 'config.php';
         </div>
     </div>
 
-    <!--
-    <section class="container mt-5">
-        <div class="card-deck">
-        <?php
-        
-            $qry = "select * from catalogo";;
-            $resut = bd_consulta('tienda_online_plg',$qry);
-            while($mostrar=mysqli_fetch_all($resut)){
-
-        ?>
-            
-                <div class="card">
-                    <img class="card-img-top" src='<?php echo $mostrar['foto'] ?>' alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title"><?php echo $mostrar['nombre'] ?></h5>
-                    <p class="card-text"><?php echo $mostrar['descripcion'] ?></p>
-                    <p class="card-text"><small class="text-muted">Precio: </small> <?php echo $mostrar['precio'] ?></p>
-                    <p class="card-text"><small class="text-muted">Stock:<strong> <?php echo $mostrar['stock'] ?> </strong></small></p>
-                    </div>
-                </div>
-            
-        <?php
-            }
-        ?>
-        </div>
-    </section>-->
-    <section>   
+    <section class="new-arrival">   
         <div class="arrival-heading">
                 <strong>Catalogo de Productos</strong>
                 <p>A continuacion de lista los productos existentes </p>
             </div>
-        <?PHP
-                $servidor="localhost";
-                $usuario="root";
-                $clave="";
-                $conexion = mysqli_connect($servidor, $usuario, $clave, "tienda_online_plg");
-                if (!$conexion)
-                    { echo "<h2>Error al establecer conexión con el servidor!!!</h2>"; exit; }
-                
-                $sql = "select * from catalogo";
-                $resultado=mysqli_query ($conexion, $sql);
-                echo "<section class='container mt-5'>";
-                echo "<div class='card-columns'>";
-                while($renglon = mysqli_fetch_array($resultado)) {
-                    echo "<div class='card'> <img class='card-img-top' src='". $renglon['foto'] . "' alt='Card image cap'>";
-                    echo "<div class='card-body'> <h5 class='card-title'>" . $renglon['nombre'] . "</h5>";
-                    echo "<p class='card-text'>" . $renglon['descripcion'] . "</p>";
-                    echo "<p class='card-text'><small class='text-muted'>Precio: </small> " . $renglon['precio'] . "</p>";
-                    echo "<p class='card-text'><small class='text-muted'>Stock: </small><strong> " . $renglon['stock'] . "</strong></small></p>";
-                    echo "</div>";
-                    echo "</div>";
-                    
-                }
-                echo "</div>";
-                echo "</section>";
-                mysqli_close($conexion);
-            ?>
-    </section>
-
-    <section>    
-        <!--heading-->
-        <div class="arrival-heading">
-            <strong>Catalogo de Productos</strong>
-            <p>A continuacion de lista los productos existentes </p>
-        </div>
-        <!--Productos contenedor-->
-        <div class="product-container">
-            <!--producto- caja - 1-->
-            <div class="product-box">
-                <!--img -->
-                <div class="product-img">
-                    <!--Agraga al carrito-->
-                    <a href="#" class="add-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-
-                    <img src="./img/p-1.jpg" >
-                </div>
-                <!--detalles-->
-                <div class="product-details">
-                    <a href="#" class="p-name">Jardineria Pricipiantes</a>
-                    <span class="p-price">$150.00</span>
-                </div>
+            <div class="product-container">
+                <?php 
+                    $sentencia = $pdo-> prepare("select * from catalogo");
+                    $sentencia->execute();
+                    $lista = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach( $lista  as $producto) {?>
+                    <!--producto- caja - 1-->
+                    <div class="product-box">
+                        <!--img -->
+                        <div class="product-img">
+                            <!--Agraga al carrito-->
+                            <a href="login.php" class="add-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                            <img title="<?php echo $producto['nombre'];?>" src="<?php echo $producto['foto'];?>" alt="Foto de producto" data-toggle='popover' data-trigger='hover' data-content="<?php echo ".".$producto['descripcion'];?>">
+                        </div>
+                        <!--detalles-->
+                        <div class="product-details">
+                            <a href="#" class="p-name"><?php echo $producto['nombre'];?></a>
+                            <span class="p-price">$<?php echo $producto['precio'];?></span>
+                            <span class="p-stock">Quedan: <?php echo $producto['stock'];?></span>
+                        </div>
+                    </div>
+                <?php }?>                
             </div>
-
-        </div>
     </section>
 
 
@@ -353,8 +299,6 @@ include 'config.php';
         $('.form').removeClass('login-active').removeClass('sign-up-active')
     })
 
-
-
     /*nav bar estatica*/
     $(Window).scroll(function(){
         if( $(document).scrollTop() > 50){
@@ -371,6 +315,12 @@ include 'config.php';
             $('.navigation').toggleClass('active')
         })
     })
+    </script>
+    
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+        })
     </script>
 </body>
 </html>

@@ -14,10 +14,6 @@
     <link rel="stylesheet" href="css/lightslider.css" type="text/css">
     <!-- Hojas de estilo  bootsrap -->  
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- jQuery -->
-    <script src="js/jQuery.js"></script>
-    <!-- Slider script -->
-    <script src="js/lightslider.js"></script>
     <!-- fav-icon-->
     <link href="img/logo_size.jpg" rel="shorcut icon">
     <!-- Usando fontAwesome -->
@@ -67,7 +63,7 @@
                     <i class="fas fa-search"></i>
                 </a>
                 <!-- Usuario-->
-                <a href="javascript:void(0);" class="user">
+                <a href="login.php" class="user">
                     <i class="fas fa-user"></i>
                 </a>
                 <!-- Carrito de Compras-->
@@ -104,10 +100,10 @@
             <strong>Log In</strong>
             <!-- inputs-->
             <form action="#">
-                <input type="email" placeholder="Ejemplo@gmial.com" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
+                <input type="text" placeholder="Login" name="login" id ="login_login" required>
+                <input type="password" placeholder="Password" name="password" id="login_password" required>
                 <!--Boton de logeo-->
-                <input type="submit" value="Iniciar Sesion">
+                <input type="submit" id="login" value="Iniciar Sesion">
             </form>
             <!--contraseña olvidada-->
             <div class="form-btns">
@@ -126,11 +122,20 @@
             <strong>Crear Cuenta</strong>
             <!--inputs-->
             <form action="#">
-                <input type="text" placeholder="Nombre Completo" name="fullname" required>
-                <input type="email" placeholder="Ejemplo@gmial.com" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
+                
+                <input type="text" placeholder="Login" name="login" id ="login" pattern="[a-zA-Z1-9]*" required>
+                <input type="text" placeholder="Nombre Completo" name="fullname" id ="fullname" pattern="[a-zA-Z ]*" required>
+                <input type="email" placeholder="Ejemplo@gmial.com" name="email" id ="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+                <input type="text" placeholder="CURP" name="curp" id="curp" pattern="^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$" required>
+                <input type="text" placeholder="RFC" name="rfc" id="rfc" pattern="^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1]))((-)?([A-Z\d]{3}))?$" required>
+                <input type="text" placeholder="Direccion" name="direccion" id="direccion" required>
+                
+                <input type="password" placeholder="Password" name="password" id ="password" required>
+                <input type="text" name="captcha" placeholder="Ingresa Captcha" id="captcha" required>
+                <img src="archivos/captcha.php" alt="PHP Captcha">
+                
                 <!--Boton de logeo-->
-                <input type="submit" value="Registrarse">
+                <input type="submit" id="" value="Registrarse">
             </form>
             <!--contraseña olvidada-->
             <div class="form-btns">
@@ -150,7 +155,7 @@
                     <div class="f-slider-text ">
                         <span>Ayudate</span>
                         <strong>No dejes que tus <br> plantas se mueran</strong>
-                        <a href="#" class="f-slider-btn">Compra Hoy</a>
+                        <a href="login.php" class="f-slider-btn">Compra Hoy</a>
                     </div>
                 </div>
             </div>
@@ -164,7 +169,7 @@
                     <div class="f-slider-text">
                         <span>Oferta limitada</span>
                         <strong>30% de descuento <br> usando</strong>
-                        <a href="#" class="f-slider-btn">PLANTA2</a>
+                        <a href="login.php" class="f-slider-btn">PLANTA2</a>
                     </div>
                 </div>
             </div>
@@ -179,7 +184,7 @@
                     <div class="f-slider-text">
                         <span>Oferta limitada</span>
                         <strong>50% de descuento <br> usando</strong>
-                        <a href="#" class="f-slider-btn">PLANTA5</a>
+                        <a href="login.php" class="f-slider-btn">PLANTA5</a>
                     </div>
                 </div>
             </div>
@@ -193,7 +198,7 @@
                     <div class="f-slider-text ">
                         <span>Oferta limitada</span>
                         <strong>10% de descuento <br> usando</strong>
-                        <a href="#" class="f-slider-btn">PLANTA1</a>
+                        <a href="login.php" class="f-slider-btn">PLANTA1</a>
                     </div>
                 </div>
             </div>
@@ -210,7 +215,7 @@
         <li class="item">
             <!--caja de destacados-->
             <div class="feature-box">
-                <a href="#">
+                <a href="login.php">
                     <img src="./img/feature_1.png" alt="Foto de producto">
                 </a>
             </div>
@@ -223,7 +228,7 @@
         <li class="item">
             <!--caja de destacados-->
             <div class="feature-box">
-                <a href="#">
+                <a href="login.php">
                     <img src="./img/feature_2_2.jpg" alt="Foto de producto">
                 </a>
             </div>
@@ -235,7 +240,7 @@
         <li class="item">
             <!--caja de destacados-->
             <div class="feature-box">
-                <a href="#">
+                <a href="login.php">
                     <img src="./img/feature_3.png" alt="Foto de producto">
                 </a>
             </div>
@@ -247,7 +252,7 @@
         <li class="item">
             <!--caja de destacados-->
             <div class="feature-box">
-                <a href="#">
+                <a href="login.php">
                     <img src="./img/feature_4.jpg" alt="Foto de producto">
                 </a>
             </div>
@@ -259,7 +264,7 @@
         <li class="item">
             <!--caja de destacados-->
             <div class="feature-box">
-                <a href="#">
+                <a href="login.php">
                     <img src="./img/feature_5.jpg" alt="Foto de producto">
                 </a>
             </div>
@@ -284,7 +289,7 @@
                 <!--img -->
                 <div class="product-img">
                     <!--Agraga al carrito-->
-                    <a href="#" class="add-cart">
+                    <a href="login.php" class="add-cart">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
 
@@ -302,7 +307,7 @@
                 <!--img -->
                 <div class="product-img">
                     <!--Agraga al carrito-->
-                    <a href="#" class="add-cart">
+                    <a href="login.php" class="add-cart">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
 
@@ -320,7 +325,7 @@
                 <!--img -->
                 <div class="product-img">
                     <!--Agraga al carrito-->
-                    <a href="#" class="add-cart">
+                    <a href="login.php" class="add-cart">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
 
@@ -338,7 +343,7 @@
                 <!--img -->
                 <div class="product-img">
                     <!--Agraga al carrito-->
-                    <a href="#" class="add-cart">
+                    <a href="login.php" class="add-cart">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
 
@@ -366,7 +371,7 @@
             <img src="img/Promo2-2.jpg" alt="Foto de promo">
             <!--etiqueta-promocion-->
             <span class="sale-lable-promo">Solo Hoy!</span>
-            <a href="#">
+            <a href="login.php">
                 <div class="sale-text drop-shadow">
                     <strong>Curso Frutas</strong>
                     <span>Descuento 10%</span>
@@ -380,7 +385,7 @@
             <img src="img/Promo1-2.jpg" alt="Foto de promo">
             <!--etiqueta-promocion-->
             <span class="sale-lable-promo">Solo Hoy!</span>
-            <a href="#">
+            <a href="login.php">
                 <div class="sale-text drop-shadow">
                     <strong>Curso Botanica</strong>
                     <span>Descuento 50%</span>
@@ -394,7 +399,7 @@
             <img src="img/Promo3-2.jpg" alt="Foto de promo">            
             <!--etiqueta-promocion-->
             <span class="sale-lable-promo">Solo Hoy!</span>
-            <a href="#">
+            <a href="login.php">
                 <div class="sale-text drop-shadow">
                     <strong>Curso Composta</strong>
                     <span>Descuento 15%</span>
@@ -412,7 +417,7 @@
             <div class="banner-text">
                 <span>Oferta limitada</span>
                 <strong>10% de descuento para ti <br> usando</strong>
-                <a href="#" class="banner-btn">PLANTA1VEZ</a>
+                <a href="login.php" class="banner-btn">PLANTA1VEZ</a>
             </div>
         </div>
     </div>
@@ -503,69 +508,12 @@
   </footer><!-- End Footer -->
 
     <!--Script-->
-    <script>
+    <!-- jQuery -->
+    <script src="js/jQuery.js"></script>
+
+    <!-- Slider script -->
+    <script src="js/lightslider.js"></script>
+    <script src="js/index.js"></script>
     
-    /*-------Barra de busqueda--------------------------*/
-    $(document).on('click', '.search',function(){
-        $('.search-bar').addClass('search-bar-active')
-    })
-    
-    $(document).on('click', '.search-cancel',function(){
-        $('.search-bar').removeClass('search-bar-active')
-    })
-
-    /* logica para cambiar entre log in y registro form*/
-    $(document).on('click', '.user,.already-account',function(){
-        $('.form').addClass('login-active').removeClass('sign-up-active')
-    })
-
-    $(document).on('click', '.sign-up-btn',function(){
-        $('.form').addClass('sign-up-active').removeClass('login-active')
-    })
-
-    $(document).on('click', '.form-cancel',function(){
-        $('.form').removeClass('login-active').removeClass('sign-up-active')
-    })
-
-    /*scrip corusel*/
-
-    $(document).ready(function() {
-        $('#adaptive').lightSlider({
-            adaptiveHeight:true,
-            auto:true,
-            item:1,
-            slideMargin:0,
-            loop:true
-        });
-    });
-
-    /*----  Categorias destacadas slider -------------*/
-    $(document).ready(function() {
-        $('#autoWidth').lightSlider({
-            autoWidth:true,
-            loop:true,
-            onSliderLoad: function() {
-                $('#autoWidth').removeClass('cS-hidden');
-            } 
-        });  
-      });
-
-    /*nav bar estatica*/
-    $(Window).scroll(function(){
-        if( $(document).scrollTop() > 50){
-            $('.navigation').addClass('fix-nav');
-        }
-        else{
-            $('.navigation').removeClass('fix-nav');
-        } 
-    })
-    /*--para ser responsivo menu----------------------------*/
-    $(document).ready(function(){
-        $('.toggle').click(function(){
-            $('.toggle').toggleClass('active')
-            $('.navigation').toggleClass('active')
-        })
-    })
-    </script>
 </body>
 </html>
